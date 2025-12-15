@@ -71,5 +71,7 @@ class StartStopSequence {
             'started' => false
         ];
         $this -> log -> debug('Registered module '.get_class($module));
+
+        return $this;
     }
 }
