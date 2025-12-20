@@ -20,6 +20,8 @@ class StartStopSequence {
     
     public function start() {
         for($i = 0; $i < count($this -> modules); $i++) {
+            throwIfCanceled();
+
             $moduleName = get_class($this -> modules[$i]['module']);
 
             $this -> log -> debug("Starting module $moduleName...");
@@ -38,8 +40,6 @@ class StartStopSequence {
                     previous: $e
                 );
             }
-
-            throwIfCanceled();
         }
     }
     
