@@ -2,9 +2,7 @@
 
 namespace AppKit\StartStop;
 
-use AppKit\StartStop\Exception\StartStopException;
-
-use AppKit\Async\Exception\CanceledException;
+use AppKit\Async\CanceledException;
 use function AppKit\Async\throwIfCanceled;
 
 use Throwable;

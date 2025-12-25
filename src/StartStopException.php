@@ -1,6 +1,6 @@
 <?php
 
-namespace AppKit\StartStop\Exception;
+namespace AppKit\StartStop;
 
 use Exception;
 
