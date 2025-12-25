@@ -2,11 +2,9 @@
     "name": "appkit/start-stop",
     "type": "library",
     "description": "Lifecycle manager for the AppKit framework",
-    "minimum-stability": "stable",
     "license": "MIT",
     "require": {
-        "appkit/async": "^1.0",
-        "appkit/exception": "^1.0"
+        "appkit/async": "^1.0"
     },
     "autoload": {
         "psr-4": {

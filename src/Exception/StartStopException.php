@@ -2,6 +2,6 @@
 
 namespace AppKit\StartStop\Exception;
 
-use AppKit\Exception\AppKitException;
+use Exception;
 
-class StartStopException extends AppKitException {}
+class StartStopException extends Exception {}
