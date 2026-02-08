@@ -12,7 +12,7 @@ class StartStopSequence {
     private $modules;
     
     function __construct($log) {
-        $this -> log = $log -> withModule($this);
+        $this -> log = $log -> withModule(static::class);
         $this -> modules = [];
     }
     
