@@ -23,7 +23,7 @@ class StartStopSequence {
             $moduleName = get_class($this -> modules[$i]['module']);
             $context = [ 'module' => $moduleName ];
 
-            $this -> log -> debug('Starting module...', $context);
+            $this -> log -> debug('Starting module', $context);
             try {
                 $this -> modules[$i]['module'] -> start();
                 $this -> modules[$i]['started'] = true;
@@ -48,7 +48,7 @@ class StartStopSequence {
                 $moduleName = get_class($this -> modules[$i]['module']);
                 $context = [ 'module' => $moduleName ];
 
-                $this -> log -> debug('Stopping module...', $context);
+                $this -> log -> debug('Stopping module', $context);
                 try {
                     $this -> modules[$i]['module'] -> stop();
                     $this -> log -> info('Stopped module', $context);
