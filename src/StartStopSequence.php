@@ -23,17 +23,17 @@ class StartStopSequence {
             $moduleName = get_class($this -> modules[$i]['module']);
             $context = [ 'module' => $moduleName ];
 
-            $this -> log -> debug('Starting module', $context);
+            $this -> log -> debug('Starting module {module}', $context);
             try {
                 $this -> modules[$i]['module'] -> start();
                 $this -> modules[$i]['started'] = true;
-                $this -> log -> info('Started module', $context);
+                $this -> log -> info('Started module {module}', $context);
             } catch(CanceledException $e) {
-                $this -> log -> info('Module start canceled', $context);
+                $this -> log -> info('Canceled start of module {module}', $context);
                 throw $e;
             } catch(Throwable $e) {
                 $error = 'Failed to start module';
-                $this -> log -> error($error, $context, $e);
+                $this -> log -> error("$error {module}", $context, $e);
                 throw new StartStopException(
                     "$error $moduleName",
                     previous: $e
@@ -48,13 +48,13 @@ class StartStopSequence {
                 $moduleName = get_class($this -> modules[$i]['module']);
                 $context = [ 'module' => $moduleName ];
 
-                $this -> log -> debug('Stopping module', $context);
+                $this -> log -> debug('Stopping module {module}', $context);
                 try {
                     $this -> modules[$i]['module'] -> stop();
-                    $this -> log -> info('Stopped module', $context);
+                    $this -> log -> info('Stopped module {module}', $context);
                 } catch(Throwable $e) {
                     $error = 'Failed to stop module';
-                    $this -> log -> error($error, $context, $e);
+                    $this -> log -> error("$error {module}", $context, $e);
                     throw new StartStopException(
                         "$error $moduleName",
                         previous: $e
@@ -70,7 +70,7 @@ class StartStopSequence {
             'started' => false
         ];
         $this -> log -> debug(
-            'Registered module',
+            'Registered module {module}',
             [ 'module' => get_class($module) ]
         );
 
